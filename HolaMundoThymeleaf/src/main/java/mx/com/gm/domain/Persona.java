@@ -3,6 +3,8 @@ package mx.com.gm.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -16,9 +18,16 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersona;
+
+    @NotEmpty
     private String nombre;
+
+    @NotEmpty
     private String apellido;
+
+    @NotEmpty
     private String email;
+
     private String telefono;
 
 }
