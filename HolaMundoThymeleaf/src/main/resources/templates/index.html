@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inicio</title>
+    </head>
+<body>
+
+    <h1>Inicio</h1>
+
+    <div th:if="${personas != null and !personas.empty}">
+        <table border="1">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+
+            <tr th:each="persona,iterador : ${personas}">
+                <td th:text="(${iterador.index})+1">#</td>
+                <td th:text="${persona.nombre}">Nombre</td>
+                <td th:text="${persona.apellido}">Apellido</td>
+                <td th:text="${persona.email}">Email</td>
+                <td th:text="${persona.telefono}">Telefono</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div th:if="${personas == null or personas.empty}">
+
+        La lista de personas está vacía
+
+    </div>
+
+</body>
+</html>
