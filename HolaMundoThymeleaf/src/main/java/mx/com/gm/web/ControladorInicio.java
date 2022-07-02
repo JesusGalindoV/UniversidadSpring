@@ -21,7 +21,7 @@ public class ControladorInicio {
     public String inicio(Model model){
 
         var personas = personaDao.findAll();
-        log.info("Ejecutando el controlador Spring MVC - database connection");
+        log.info("Ejecutando el controlador Spring MVC - database connection.");
 
         model.addAttribute("personas", personas);
 
