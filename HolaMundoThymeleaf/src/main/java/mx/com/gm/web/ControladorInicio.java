@@ -6,6 +6,8 @@ import mx.com.gm.domain.Persona;
 import mx.com.gm.services.PersonaService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -22,11 +24,11 @@ public class ControladorInicio {
     private PersonaService personaService;
 
     @GetMapping("/")
-    public String inicio(Model model){
+    public String inicio(Model model, @AuthenticationPrincipal User user){
 
         var personas = personaService.listarPersonas();
         log.info("Ejecutando el controlador Spring MVC - database connection. 05");
-
+        log.info("Usuario Logeado: " + user);
         model.addAttribute("personas", personas);
 
         return "index";
