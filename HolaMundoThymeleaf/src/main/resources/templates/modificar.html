@@ -7,8 +7,8 @@
 <body>
 
     <header th:replace="layout/plantilla :: header"></header>
-    <h2>Datos de la Persona:</h2>
-    <a th:href="@{/}">Regresar</a>
+    <h2>[[#{modificar.datos}]]</h2>
+    <a th:href="@{/}">[[#{modificar.volver}]]</a>
 
     <br/>
 
@@ -16,30 +16,30 @@
 
         <input type="hidden" name="idPersona" th:field="*{idPersona}">
 
-        <label>Nombre:</label>
+        <label>[[#{persona.nombre}]]:</label>
         <input type="text" name="nombre" th:field="*{nombre}">
         <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>
 
         <br/>
 
-        <label>Apellido:</label>
+        <label>[[#{persona.apellido}]]:</label>
         <input type="text" name="apellido" th:field="*{apellido}">
         <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
 
         <br/>
 
-        <label>Email:</label>
+        <label>[[#{persona.email}]]:</label>
         <input type="email" name="email" th:field="*{email}">
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
 
         <br/>
 
-        <label>Telefono:</label>
+        <label>[[#{persona.telefono}]]:</label>
         <input type="tel" name="telefono" th:field="*{telefono}">
 
         <br/>
 
-        <input type="submit" name="guardar" value="guardar">
+        <input type="submit" name="guardar" th:value="#{modificar.guardar}">
 
     </form>
 
